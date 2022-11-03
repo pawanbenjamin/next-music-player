@@ -1,26 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import prisma from "../../lib/prisma";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import cookie from "cookie";
-
-type Data = {
-  email?: String;
-  password?: String;
-  error?: String;
-  firstName?: String;
-  lastName?: String;
-};
-
-type User = {
-  createdAt?: Date;
-  email?: string;
-  firstName?: string;
-  id?: number;
-  lastName?: string;
-  password?: string;
-  updatedAt?: Date;
-};
+import prisma from "../../lib/prisma";
+import { User, Data } from "../../lib/types";
 
 export default async function handler(
   req: NextApiRequest,

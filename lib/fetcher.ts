@@ -1,11 +1,6 @@
-type body = {
-  email: string;
-  password: string;
-  firstName?: string;
-  lastName?: string;
-};
+import { Body } from "../lib/types";
 
-export default async function fetcher(url: string, data: body | undefined) {
+export default async function fetcher(url: string, data: Body | undefined) {
   const res = await fetch(`${window.location.origin}/api${url}`, {
     method: data ? "POST" : "GET",
     credentials: "include",

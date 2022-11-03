@@ -10,16 +10,10 @@ import {
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { auth } from "../lib/mutations";
+import { Body } from "../lib/types";
 
 type Props = {
   mode: "signin" | "signup";
-};
-
-type Body = {
-  email: string;
-  password: string;
-  firstName?: string;
-  lastName?: string;
 };
 
 export default function AuthForm({ mode }: Props) {

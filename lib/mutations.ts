@@ -1,12 +1,6 @@
 import fetcher from "./fetcher";
+import { Body } from "./types";
 
-type body = {
-  email: string;
-  password: string;
-  firstName?: string;
-  lastName?: string;
-};
-
-export const auth = async (mode: "signup" | "signin", body: body) => {
+export const auth = async (mode: "signup" | "signin", body: Body) => {
   return await fetcher(`/${mode}`, body);
 };
