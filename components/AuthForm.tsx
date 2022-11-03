@@ -1,4 +1,12 @@
-import { Box, Flex, Input, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Input,
+  Button,
+  useToast,
+  Text,
+  FormControl,
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { auth } from "../lib/mutations";
@@ -16,6 +24,7 @@ type Body = {
 
 export default function AuthForm({ mode }: Props) {
   const router = useRouter();
+  const toast = useToast();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,7 +49,14 @@ export default function AuthForm({ mode }: Props) {
     }
     const user = await auth(mode, body);
     if (user.error) {
-      setError(user.error);
+      setEmail("");
+      setPassword("");
+      toast({
+        title: "Signin Failed!",
+        description: user.error,
+        status: "warning",
+        isClosable: true,
+      });
     }
     setIsLoading(false);
     // router.push("/");
@@ -48,10 +64,14 @@ export default function AuthForm({ mode }: Props) {
 
   return (
     <Box height="100vh" width="100vw" bg="black" color="white">
-      <Flex></Flex>
-      <Flex>
+      <Flex direction="column" justify="center" align="center" height="100px">
         <Box>
-          <form onSubmit={handleSubmit}>
+          <form
+            style={{
+              marginTop: "60vw",
+            }}
+            onSubmit={handleSubmit}
+          >
             {mode === "signup" && (
               <>
                 <Input
@@ -90,7 +110,6 @@ export default function AuthForm({ mode }: Props) {
               {mode}
             </Button>
           </form>
-          {error && <h4>{error}</h4>}
         </Box>
       </Flex>
     </Box>
