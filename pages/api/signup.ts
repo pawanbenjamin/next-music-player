@@ -59,7 +59,7 @@ export default async function handler(
 
   res.setHeader(
     "Set-Cookie",
-    cookie.serialize("next-player-token", token, {
+    cookie.serialize("next_player_token", token, {
       httpOnly: true,
       maxAge: 8 * 60 * 60,
       path: "/",

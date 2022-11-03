@@ -8,6 +8,7 @@ import {
   FormControl,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import React, { useState } from "react";
 import { auth } from "../lib/mutations";
 import { Body } from "../lib/types";
@@ -104,6 +105,11 @@ export default function AuthForm({ mode }: Props) {
               {mode}
             </Button>
           </form>
+          {mode === "signin" && (
+            <h4>
+              Don't have an account? <Link href="/signup">Sign Up</Link>
+            </h4>
+          )}
         </Box>
       </Flex>
     </Box>
