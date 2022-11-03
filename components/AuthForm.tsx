@@ -38,7 +38,7 @@ export default function AuthForm({ mode }: Props) {
       body.lastName = lastName;
     }
     const user = await auth(mode, body);
-    console.log({ user });
+
     setIsLoading(false);
     // router.push("/");
   }
