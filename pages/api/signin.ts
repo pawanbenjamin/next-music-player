@@ -33,8 +33,8 @@ export default async function handler(
       cookie.serialize("next_player_token", token, {
         httpOnly: true,
         maxAge: 8 * 60 * 60,
+        sameSite: "strict",
         path: "/",
-        sameSite: "lax",
         secure: process.env.NODE_ENV === "production",
       })
     );

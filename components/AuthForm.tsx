@@ -54,7 +54,7 @@ export default function AuthForm({ mode }: Props) {
       });
     }
     setIsLoading(false);
-    // router.push("/");
+    router.push("/");
   }
 
   return (
@@ -105,9 +105,13 @@ export default function AuthForm({ mode }: Props) {
               {mode}
             </Button>
           </form>
-          {mode === "signin" && (
+          {mode === "signin" ? (
             <h4>
               Don't have an account? <Link href="/signup">Sign Up</Link>
+            </h4>
+          ) : (
+            <h4>
+              Already have an account? <Link href="/signin">Sign In</Link>
             </h4>
           )}
         </Box>
