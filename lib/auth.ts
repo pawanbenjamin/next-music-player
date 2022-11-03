@@ -4,13 +4,17 @@ import handler from "../pages/api/signup";
 import prisma from "./prisma";
 import { User } from "./types";
 
+interface JwtPayload {
+  id: number;
+}
+
 export const validateRoute = (handler: any) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     const { next_player_token: token } = req.cookies;
     if (token) {
       let user: User | null;
       try {
-        const { id } = jwt.verify(token, "hello");
+        const { id } = jwt.verify(token, "hello") as JwtPayload;
         console.log("IDDDD", id);
         user = await prisma.user.findUnique({
           where: {
