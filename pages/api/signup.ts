@@ -13,6 +13,16 @@ type Data = {
   lastName?: String;
 };
 
+type User = {
+  createdAt?: Date;
+  email?: string;
+  firstName?: string;
+  id?: number;
+  lastName?: string;
+  password?: string;
+  updatedAt?: Date;
+};
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
@@ -20,7 +30,7 @@ export default async function handler(
   const salt = bcrypt.genSaltSync();
   const { email, password, firstName, lastName } = req.body;
 
-  let user;
+  let user: User;
 
   try {
     user = await prisma.user.create({

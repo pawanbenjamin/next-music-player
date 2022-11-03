@@ -14,9 +14,11 @@ export default async function fetcher(url: string, data: body | undefined) {
     },
     body: JSON.stringify(data),
   });
-  console.log("RESSS   ", res);
-  if (res.status > 399 && res.status < 200) {
-    throw new Error();
-  }
+  //   console.log("RESSS   ", res);
+  //   if (res.status > 399 && res.status < 200) {
+  //     const result = await res.json();
+  //     console.log(result);
+  //     throw new Error();
+  //   }
   return res.json();
 }

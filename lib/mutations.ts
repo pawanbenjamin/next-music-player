@@ -8,6 +8,5 @@ type body = {
 };
 
 export const auth = async (mode: "signup" | "signin", body: body) => {
-  console.log("BODYYY  ", body);
   return await fetcher(`/${mode}`, body);
 };

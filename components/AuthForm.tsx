@@ -21,6 +21,7 @@ export default function AuthForm({ mode }: Props) {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -38,7 +39,9 @@ export default function AuthForm({ mode }: Props) {
       body.lastName = lastName;
     }
     const user = await auth(mode, body);
-
+    if (user.error) {
+      setError(user.error);
+    }
     setIsLoading(false);
     // router.push("/");
   }
@@ -87,6 +90,7 @@ export default function AuthForm({ mode }: Props) {
               {mode}
             </Button>
           </form>
+          {error && <h4>{error}</h4>}
         </Box>
       </Flex>
     </Box>
