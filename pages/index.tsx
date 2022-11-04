@@ -1,13 +1,22 @@
-import { Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex, Button } from "@chakra-ui/react";
 import GradientLayout from "../components/GradientLayout";
+import { useRouter } from "next/router";
 import { useMe } from "../lib/hooks";
 
 const artists = [{ name: "Bill" }, { name: "John" }, { name: "Regina" }];
 
 export default function Home() {
+  const router = useRouter();
   const { user } = useMe();
 
   console.log("user", user);
+
+  async function logout() {
+    const result = await fetch("/api/logout");
+    const response = await result.json();
+    console.log(response);
+    router.push("/signin");
+  }
 
   return (
     <GradientLayout>
@@ -25,6 +34,7 @@ export default function Home() {
           })}
         </Flex>
         <Text>{JSON.stringify(user)}</Text>
+        <Button onClick={logout}>Logout</Button>
       </Box>
     </GradientLayout>
   );

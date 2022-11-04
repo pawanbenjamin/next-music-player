@@ -60,7 +60,7 @@ export default function AuthForm({ mode }: Props) {
   return (
     <Box height="100vh" width="100vw" bg="black" color="white">
       <Flex direction="column" justify="center" align="center" height="100px">
-        <Box>
+        <Box w="400px">
           <form
             style={{
               marginTop: "60vw",
