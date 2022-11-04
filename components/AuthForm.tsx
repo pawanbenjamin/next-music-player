@@ -33,7 +33,6 @@ export default function AuthForm({ mode }: Props) {
 
     setIsLoading(true);
 
-    console.log(email, password);
     const body: Body = {
       email,
       password,

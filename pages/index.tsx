@@ -9,12 +9,8 @@ export default function Home() {
   const router = useRouter();
   const { user } = useMe();
 
-  console.log("user", user);
-
   async function logout() {
-    const result = await fetch("/api/logout");
-    const response = await result.json();
-    console.log(response);
+    await fetch("/api/logout");
     router.push("/signin");
   }
 
