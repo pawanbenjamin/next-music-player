@@ -52,15 +52,16 @@ export default function AuthForm({ mode }: Props) {
         status: "warning",
         isClosable: true,
       });
+    } else {
+      router.push("/");
     }
     setIsLoading(false);
-    router.push("/");
   }
 
   return (
     <Box height="100vh" width="100vw" bg="black" color="white">
       <Flex direction="column" justify="center" align="center" height="100px">
-        <Box w="400px">
+        <Box w="40%">
           <form
             style={{
               marginTop: "60vw",

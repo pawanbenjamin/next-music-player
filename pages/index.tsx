@@ -34,7 +34,9 @@ export default function Home() {
           })}
         </Flex>
         <Text>{JSON.stringify(user)}</Text>
-        <Button onClick={logout}>Logout</Button>
+        <Button type="submit" bg="green.500" onClick={logout}>
+          Logout
+        </Button>
       </Box>
     </GradientLayout>
   );
