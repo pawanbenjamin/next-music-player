@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
-import handler from "../pages/api/signup";
+
 import prisma from "./prisma";
 import { User } from "./types";
 
