@@ -1,19 +1,21 @@
 import { Box, Text, Flex, Button, Image } from "@chakra-ui/react";
+import { json } from "stream/consumers";
 import GradientLayout from "../components/GradientLayout";
-import { useRouter } from "next/router";
 import { useMe } from "../lib/hooks";
+import prisma from "../lib/prisma";
 
-const artists = [{ name: "Bill" }, { name: "John" }, { name: "Regina" }];
+// const artists = [{ name: "Bill" }, { name: "John" }, { name: "Regina" }];
 
-export default function Home() {
-  const router = useRouter();
+export const getServerSideProps = async () => {
+  const artists = await prisma.artist.findMany();
+  console.log(artists);
+  const allArtists = JSON.parse(JSON.stringify(artists));
+
+  return { props: { artists: allArtists } };
+};
+
+export default function Home({ artists }: any) {
   const { user } = useMe();
-
-  async function logout() {
-    await fetch("/api/logout");
-    router.push("/signin");
-  }
-
   return (
     <GradientLayout
       roundImage
@@ -31,7 +33,7 @@ export default function Home() {
           <Text fontSize="medium">Only visible to you</Text>
         </Box>
         <Flex>
-          {artists.map((artist) => (
+          {artists.map((artist: any) => (
             <Box paddingX="10px" width="20%">
               <Box bg="gray.900" borderRadius="4px" padding="15px">
                 <Image
