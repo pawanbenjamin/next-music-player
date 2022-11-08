@@ -9,6 +9,7 @@ import {
   ListItem,
   Center,
   LinkBox,
+  Link,
   LinkOverlay,
   Text,
 } from "@chakra-ui/react";
@@ -76,15 +77,15 @@ export default function Sidebar() {
             {navMenu.map((menuItem, i) => (
               <ListItem paddingX="20px" fontSize="16px" key={i}>
                 <LinkBox>
-                  <NextLink href={menuItem.route}>
-                    <LinkOverlay>
+                  <NextLink href={menuItem.route} legacyBehavior passHref>
+                    <Link>
                       <ListIcon
                         as={menuItem.icon}
                         color="white"
                         marginRight="20px"
                       />
                       {menuItem.name}
-                    </LinkOverlay>
+                    </Link>
                   </NextLink>
                 </LinkBox>
               </ListItem>
@@ -97,7 +98,7 @@ export default function Sidebar() {
             {musicMenu.map((item) => (
               <ListItem paddingX="20px" fontSize="16px" key={item.name}>
                 <LinkBox>
-                  <NextLink href={item.route}>
+                  <NextLink href={item.route} legacyBehavior passHref>
                     <LinkOverlay>
                       <ListIcon
                         as={item.icon}
@@ -138,6 +139,7 @@ export default function Sidebar() {
                       pathname: "/playlist/[id]",
                       query: { id: list.id },
                     }}
+                    legacyBehavior
                     passHref
                   >
                     <LinkOverlay>{list.name}</LinkOverlay>
