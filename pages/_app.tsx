@@ -7,10 +7,8 @@ import { useMe } from "../lib/hooks";
 import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { user } = useMe();
-  console.log({ user });
   const router = useRouter();
-  console.log(router);
+
   return (
     <ChakraProvider>
       {router.pathname === "/signin" || router.pathname === "/signup" ? (

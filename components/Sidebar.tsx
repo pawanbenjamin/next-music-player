@@ -2,6 +2,7 @@
 import NextLink from "next/link";
 import {
   Box,
+  Flex,
   List,
   ListIcon,
   Divider,
@@ -33,7 +34,7 @@ const navMenu = [
     route: "/search",
   },
   {
-    name: "Your Library",
+    name: "Library",
     icon: MdLibraryMusic,
     route: "/library",
   },
@@ -41,7 +42,7 @@ const navMenu = [
 
 const musicMenu = [
   {
-    name: "Create Playlist",
+    name: "Add",
     icon: MdPlaylistAdd,
     route: "/",
   },
@@ -52,7 +53,7 @@ const musicMenu = [
   },
 ];
 
-const playlists = new Array(20).fill(1).map((_, i) => {
+const playlists = new Array(30).fill(1).map((_, i) => {
   return { name: `Playlist ${i + 1}`, id: i + 1 };
 });
 
@@ -113,8 +114,22 @@ export default function Sidebar() {
           <Divider bg="green.800" marginY="10px" />
         </Box>
 
-        <Box height="60%" overflowY="auto" paddingLeft="20px">
-          <List spacing={2}>
+        <Box
+          sx={{
+            "&::-webkit-scrollbar": {
+              width: "16px",
+              borderRadius: "8px",
+              backgroundColor: `rgba(0, 0, 0, 0.05)`,
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: `rgba(0, 0, 0, 0.05)`,
+            },
+          }}
+          height="66%"
+          paddingLeft="20px"
+          overflowY="auto"
+        >
+          <List marginBottom="3rem" spacing={2}>
             {playlists.map((list) => (
               <ListItem key={list.id}>
                 <LinkBox>

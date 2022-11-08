@@ -9,7 +9,10 @@ type song = {
   };
 };
 
-const activeSong: song | null = null;
+const activeSong: song | null = {
+  name: "A Night with Bill",
+  artist: { name: "Bill" },
+};
 
 export default function PlayerBar() {
   return (
