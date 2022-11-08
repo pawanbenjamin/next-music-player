@@ -1,4 +1,5 @@
 import { Box, Flex, Text, Image, Button } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 type Props = {
   children: JSX.Element | JSX.Element[];
@@ -21,6 +22,13 @@ export default function GradientLayout({
   description,
   roundImage,
 }: Props) {
+  const router = useRouter();
+
+  async function logout() {
+    await fetch("/api/logout");
+    router.push("/signin");
+  }
+
   return (
     <Box
       height="100%"
@@ -44,6 +52,7 @@ export default function GradientLayout({
           <Text fontSize="x-small">{description}</Text>
         </Box>
         <Button
+          onClick={logout}
           type="submit"
           fontSize="small"
           bg={`${color}.600`}
