@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Button } from "@chakra-ui/react";
 
 type Props = {
   children: JSX.Element | JSX.Element[];
@@ -43,6 +43,16 @@ export default function GradientLayout({
           <Text fontSize="6xl">{title}</Text>
           <Text fontSize="x-small">{description}</Text>
         </Box>
+        <Button
+          type="submit"
+          fontSize="small"
+          bg={`${color}.600`}
+          position="absolute"
+          top="1rem"
+          right="1rem"
+        >
+          Logout
+        </Button>
       </Flex>
       <Box paddingY="50px">{children}</Box>
     </Box>

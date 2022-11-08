@@ -1,4 +1,4 @@
-import NextImage from "next/image";
+// import NextImage from "next/image";
 import NextLink from "next/link";
 import {
   Box,
@@ -9,7 +9,8 @@ import {
   Center,
   LinkBox,
   LinkOverlay,
-} from "@chakra-ui/layout";
+  Text,
+} from "@chakra-ui/react";
 
 import {
   MdHome,
@@ -51,8 +52,8 @@ const musicMenu = [
   },
 ];
 
-const playlists = new Array(30).fill(1).map((_, i) => {
-  return { name: `Playlist ${i + 1}`, id: i };
+const playlists = new Array(20).fill(1).map((_, i) => {
+  return { name: `Playlist ${i + 1}`, id: i + 1 };
 });
 
 export default function Sidebar() {
@@ -66,12 +67,13 @@ export default function Sidebar() {
     >
       <Box paddingY="20px" height="100%">
         <Box width="120px" marginBottom="20px" paddingX="20px">
-          <NextImage src="/logo.svg" height={60} width={120} />
+          {/* <NextImage src="/logo.svg" height={60} width={120} /> */}
+          <Text>NMP</Text>
         </Box>
         <Box marginBottom="20px">
           <List spacing={2}>
-            {navMenu.map((menuItem) => (
-              <ListItem paddingX="20px" fontSize="16px" key={menuItem.name}>
+            {navMenu.map((menuItem, i) => (
+              <ListItem paddingX="20px" fontSize="16px" key={i}>
                 <LinkBox>
                   <NextLink href={menuItem.route}>
                     <LinkOverlay>

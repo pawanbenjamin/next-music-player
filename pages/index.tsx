@@ -29,9 +29,6 @@ export default function Home() {
             Top artists this month:
           </Text>
           <Text fontSize="medium">Only visible to you</Text>
-          {/* <Button type="submit" bg="green.500" onClick={logout}>
-            Logout
-          </Button> */}
         </Box>
         <Flex>
           {artists.map((artist) => (
