@@ -16,16 +16,16 @@ const activeSong: song | null = {
 
 export default function PlayerBar() {
   return (
-    <Box height="100px" width="100vw" bg="gray.900" padding="10px">
-      <Flex align="center">
+    <div>
+      <div>
         {activeSong ? (
-          <Box padding="20px" color="white" width="30%">
-            <Text fontSize="large">{activeSong.name}</Text>
-            <Text fontSize="sm">{activeSong.artist.name}</Text>
-          </Box>
+          <div>
+            <h3>{activeSong.name}</h3>
+            <h3>{activeSong.artist.name}</h3>
+          </div>
         ) : null}
-        <Box width="40%">{activeSong ? <Player /> : null}</Box>
-      </Flex>
-    </Box>
+        <div>{activeSong ? <Player /> : null}</div>
+      </div>
+    </div>
   );
 }

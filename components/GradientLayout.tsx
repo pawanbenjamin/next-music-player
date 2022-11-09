@@ -1,4 +1,3 @@
-import { Box, Flex, Text, Image, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 type Props = {
@@ -10,8 +9,6 @@ type Props = {
   description: string;
   roundImage: boolean;
 };
-
-const color = "green";
 
 export default function GradientLayout({
   children,
@@ -30,41 +27,19 @@ export default function GradientLayout({
   }
 
   return (
-    <Box
-      height="100%"
-      overflowY="auto"
-      maxW="90vw"
-      bgGradient={`linear(${color}.500 0%, ${color}.600 15%, ${color}.700 40%, rgba(0,0,0,0.95) 75%)`}
-    >
-      <Flex bg={`${color}.600`} padding="40px" align="end">
-        <Box padding="20px">
-          <Image
-            boxSize="160px"
-            boxShadow="2xl"
-            src={image}
-            borderRadius={roundImage ? "100%" : "3px"}
-          />
-        </Box>
-        <Box padding="20px" lineHeight="40px" color="white">
-          <Text fontSize="x-small" fontWeight="bold" casing="uppercase">
-            {subtitle}
-          </Text>
-          <Text fontSize="6xl">{title}</Text>
-          <Text fontSize="x-small">{description}</Text>
-        </Box>
-        <Button
-          onClick={logout}
-          type="submit"
-          fontSize="small"
-          bg={`${color}.600`}
-          position="absolute"
-          top="1rem"
-          right="1rem"
-        >
-          Logout
-        </Button>
-      </Flex>
-      <Box paddingY="50px">{children}</Box>
-    </Box>
+    <div>
+      <div>
+        <div>
+          <img />
+        </div>
+        <div>
+          <h4>{subtitle}</h4>
+          <h4>{title}</h4>
+          <h4>{description}</h4>
+        </div>
+        <button onClick={logout}>Logout</button>
+      </div>
+      <div>{children}</div>
+    </div>
   );
 }

@@ -26,8 +26,8 @@ import {
 
 export default function Player() {
   return (
-    <Box>
-      <Box>
+    <div>
+      <div>
         {/* <ReactHowler
           ref={soundRef}
           playing={playing}
@@ -35,9 +35,9 @@ export default function Player() {
           onLoad={onLoad}
           onEnd={onEnd}
         /> */}
-      </Box>
-      <Center color="gray.600">
-        <ButtonGroup>
+      </div>
+      <div>
+        <div>
           <IconButton
             outline="none"
             variant="link"
@@ -91,14 +91,12 @@ export default function Player() {
             // color={repeat ? "white" : "gray.600"}
             // onClick={() => onRepeat()}
           />
-        </ButtonGroup>
-      </Center>
-      <Box color="gray.600">
-        <Flex justify="center" align="center">
-          <Box width="10%">
-            {/* <Text fontSize="x-small">{formatTime(seek)}</Text> */}
-          </Box>
-          <Box width="80%">
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>{/* <Text fontSize="x-small">{formatTime(seek)}</Text> */}</div>
+          <div>
             <RangeSlider
             // eslint-disable-next-line jsx-a11y/aria-proptypes
             //   aria-label={[`min`, `max`]}
@@ -116,12 +114,12 @@ export default function Player() {
               </RangeSliderTrack>
               <RangeSliderThumb index={0} />
             </RangeSlider>
-          </Box>
-          <Box width="10%" textAlign="right">
+          </div>
+          <div>
             {/* <Text fontSize="x-small">{formatTime(duration)}</Text> */}
-          </Box>
-        </Flex>
-      </Box>
-    </Box>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
