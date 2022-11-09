@@ -1,4 +1,4 @@
-import { Box, Text, Flex, Button, Image } from "@chakra-ui/react";
+import { Box, Text, Flex, Button, Image, HStack } from "@chakra-ui/react";
 import { json } from "stream/consumers";
 import GradientLayout from "../components/GradientLayout";
 import { useMe } from "../lib/hooks";
@@ -32,7 +32,7 @@ export default function Home({ artists }: any) {
           </Text>
           <Text fontSize="medium">Only visible to you</Text>
         </Box>
-        <Flex>
+        <Flex overflowX="auto">
           {artists.map((artist: any) => (
             <Box paddingX="10px" width="20%">
               <Box bg="gray.900" borderRadius="4px" padding="15px">

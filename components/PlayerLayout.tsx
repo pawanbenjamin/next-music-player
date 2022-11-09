@@ -8,12 +8,14 @@ type Props = {
 
 const PlayerLayout = ({ children }: Props) => {
   return (
-    <Flex width="100vw" height="100vh">
+    <Flex maxW="100vw" height="100vh">
       <Box width="20rem">
         <Sidebar />
       </Box>
       <Box marginBottom="100px">
-        <Box height="calc(100vh - 100px)">{children}</Box>
+        <Box height="calc(100vh - 100px)" maxW="100%">
+          {children}
+        </Box>
       </Box>
       <Box position="absolute" left="0" bottom="0" zIndex="1">
         <PlayerBar />

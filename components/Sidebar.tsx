@@ -61,7 +61,7 @@ const playlists = new Array(30).fill(1).map((_, i) => {
 export default function Sidebar() {
   return (
     <Box
-      width="100%"
+      width="20rem"
       height="calc(100vh - 100px)"
       bg="black"
       paddingX="5px"

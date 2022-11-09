@@ -33,6 +33,7 @@ export default function GradientLayout({
     <Box
       height="100%"
       overflowY="auto"
+      maxW="90vw"
       bgGradient={`linear(${color}.500 0%, ${color}.600 15%, ${color}.700 40%, rgba(0,0,0,0.95) 75%)`}
     >
       <Flex bg={`${color}.600`} padding="40px" align="end">
