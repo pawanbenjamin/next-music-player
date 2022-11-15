@@ -98,16 +98,15 @@ export default function Player() {
           <div>{/* <Text fontSize="x-small">{formatTime(seek)}</Text> */}</div>
           <div>
             <RangeSlider
-            // eslint-disable-next-line jsx-a11y/aria-proptypes
-            //   aria-label={[`min`, `max`]}
-            //   step={0.1}
-            //   min={0}
-            //   id="player-range"
-            //   max={duration ? +duration.toFixed(2) : 0}
-            //   onChange={onSeek}
-            //   value={[seek]}
-            //   onChangeStart={() => setIsSeeking(true)}
-            //   onChangeEnd={() => setIsSeeking(false)}
+              aria-label={[`min`, `max`]}
+              step={0.1}
+              min={0}
+              id="player-range"
+              // max={duration ? +duration.toFixed(2) : 0}
+              // onChange={onSeek}
+              // value={[seek]}
+              // onChangeStart={() => setIsSeeking(true)}
+              // onChangeEnd={() => setIsSeeking(false)}
             >
               <RangeSliderTrack bg="gray.600">
                 <RangeSliderFilledTrack bg="gray.400" />

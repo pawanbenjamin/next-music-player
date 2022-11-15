@@ -1,5 +1,3 @@
-import { Box, Flex, Text } from "@chakra-ui/layout";
-
 import Player from "./Player";
 
 type song = {
