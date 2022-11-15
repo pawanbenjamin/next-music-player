@@ -8,18 +8,12 @@ type Props = {
 
 const PlayerLayout = ({ children }: Props) => {
   return (
-    <div className="bg-kombu flex flex-col ">
-      <div className="flex flex-row content-container">
-        <div className="w-44">
-          <Sidebar />
-        </div>
-        <div>
-          <div className="content-container ">{children}</div>
-        </div>
+    <div className="bg-kombu flex flex-col h-screen">
+      <div className="flex flex-row">
+        <Sidebar />
+        <div className="">{children}</div>
       </div>
-      <div>
-        <PlayerBar />
-      </div>
+      <PlayerBar />
     </div>
   )
 }
