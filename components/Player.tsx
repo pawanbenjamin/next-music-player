@@ -9,10 +9,10 @@ import {
   Center,
   Flex,
   Text,
-  Icon,
-} from "@chakra-ui/react";
+  Icon
+} from "@chakra-ui/react"
 // import ReactHowler from "react-howler";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react"
 import {
   MdShuffle,
   MdSkipPrevious,
@@ -21,21 +21,20 @@ import {
   MdOutlinePauseCircleFilled,
   MdOutlineRepeat,
   MdRepeat,
-  MdPreview,
-} from "react-icons/md";
+  MdPreview
+} from "react-icons/md"
 
 export default function Player() {
   return (
     <div>
-      <div>
-        {/* <ReactHowler
+      {/* <ReactHowler
           ref={soundRef}
           playing={playing}
           src={activeSong?.url}
           onLoad={onLoad}
           onEnd={onEnd}
         /> */}
-      </div>
+
       <div>
         <div>
           <IconButton
@@ -120,5 +119,5 @@ export default function Player() {
         </div>
       </div>
     </div>
-  );
+  )
 }

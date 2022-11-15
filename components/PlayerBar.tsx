@@ -1,29 +1,27 @@
-import Player from "./Player";
+import Player from "./Player"
 
 type song = {
-  name: string;
+  name: string
   artist: {
-    name: string;
-  };
-};
+    name: string
+  }
+}
 
 const activeSong: song | null = {
   name: "A Night with Bill",
-  artist: { name: "Bill" },
-};
+  artist: { name: "Bill" }
+}
 
 export default function PlayerBar() {
   return (
     <div>
-      <div>
-        {activeSong ? (
-          <div>
-            <h3>{activeSong.name}</h3>
-            <h3>{activeSong.artist.name}</h3>
-          </div>
-        ) : null}
-        <div>{activeSong ? <Player /> : null}</div>
-      </div>
+      {activeSong ? (
+        <div>
+          <h3>{activeSong.name}</h3>
+          <h3>{activeSong.artist.name}</h3>
+        </div>
+      ) : null}
+      {activeSong ? <Player /> : null}
     </div>
-  );
+  )
 }
