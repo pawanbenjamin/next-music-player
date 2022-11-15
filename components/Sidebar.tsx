@@ -1,5 +1,5 @@
 // import NextImage from "next/image";
-import NextLink from "next/link";
+import NextLink from "next/link"
 import {
   Box,
   Flex,
@@ -11,8 +11,8 @@ import {
   LinkBox,
   Link,
   LinkOverlay,
-  Text,
-} from "@chakra-ui/react";
+  Text
+} from "@chakra-ui/react"
 
 import {
   MdHome,
@@ -20,48 +20,48 @@ import {
   MdLibraryMusic,
   MdPlaylistAdd,
   MdFavorite,
-  MdEventBusy,
-} from "react-icons/md";
+  MdEventBusy
+} from "react-icons/md"
 
 const navMenu = [
   {
     name: "Home",
     icon: MdHome,
-    route: "/",
+    route: "/"
   },
   {
     name: "Search",
     icon: MdSearch,
-    route: "/search",
+    route: "/search"
   },
   {
     name: "Library",
     icon: MdLibraryMusic,
-    route: "/library",
-  },
-];
+    route: "/library"
+  }
+]
 
 const musicMenu = [
   {
     name: "Add",
     icon: MdPlaylistAdd,
-    route: "/",
+    route: "/"
   },
   {
     name: "Favorites",
     icon: MdFavorite,
-    route: "/favorites",
-  },
-];
+    route: "/favorites"
+  }
+]
 
 const playlists = new Array(30).fill(1).map((_, i) => {
-  return { name: `Playlist ${i + 1}`, id: i + 1 };
-});
+  return { name: `Playlist ${i + 1}`, id: i + 1 }
+})
 
 export default function Sidebar() {
   return (
     <div>
-      <div>
+      <div className="content-container">
         <div>
           {/* <NextImage src="/logo.svg" height={60} width={120} /> */}
           <h3>NMP</h3>
@@ -89,14 +89,14 @@ export default function Sidebar() {
           <hr />
         </div>
 
-        <div>
+        <div className="bg-yellow overflow-y-auto">
           <ul>
             {playlists.map((list) => (
               <li key={list.id}>
                 <NextLink
                   href={{
                     pathname: "/playlist/[id]",
-                    query: { id: list.id },
+                    query: { id: list.id }
                   }}
                 >
                   {list.name}
@@ -107,5 +107,5 @@ export default function Sidebar() {
         </div>
       </div>
     </div>
-  );
+  )
 }

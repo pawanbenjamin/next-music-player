@@ -1,12 +1,12 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import "reset-css";
-import { ChakraProvider } from "@chakra-ui/react";
-import PlayerLayout from "../components/PlayerLayout";
-import { useRouter } from "next/router";
+import "../styles/globals.css"
+import type { AppProps } from "next/app"
+import "reset-css"
+import { ChakraProvider } from "@chakra-ui/react"
+import PlayerLayout from "../components/PlayerLayout"
+import { useRouter } from "next/router"
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <ChakraProvider>
@@ -18,5 +18,5 @@ export default function App({ Component, pageProps }: AppProps) {
         </PlayerLayout>
       )}
     </ChakraProvider>
-  );
+  )
 }

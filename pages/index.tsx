@@ -1,20 +1,20 @@
-import GradientLayout from "../components/GradientLayout";
-import { useMe } from "../lib/hooks";
-import prisma from "../lib/prisma";
-import Image from "next/image";
+import GradientLayout from "../components/GradientLayout"
+import { useMe } from "../lib/hooks"
+import prisma from "../lib/prisma"
+import Image from "next/image"
 
 // const artists = [{ name: "Bill" }, { name: "John" }, { name: "Regina" }];
 
 export const getServerSideProps = async () => {
-  const artists = await prisma.artist.findMany();
-  console.log(artists);
-  const allArtists = JSON.parse(JSON.stringify(artists));
+  const artists = await prisma.artist.findMany()
+  console.log(artists)
+  const allArtists = JSON.parse(JSON.stringify(artists))
 
-  return { props: { artists: allArtists } };
-};
+  return { props: { artists: allArtists } }
+}
 
 export default function Home({ artists }: any) {
-  const { user } = useMe();
+  const { user } = useMe()
   return (
     <GradientLayout
       roundImage
@@ -24,7 +24,7 @@ export default function Home({ artists }: any) {
       description={`${user?.playlistCount} public playlists`}
       image="https://static.scientificamerican.com/sciam/cache/file/ACF0A7DC-14E3-4263-93F438F6DA8CE98A_source.jpg"
     >
-      <div>
+      <div className="w-90">
         <div>
           <h4>Top artists this month:</h4>
           <h4>Only visible to you</h4>
@@ -34,8 +34,8 @@ export default function Home({ artists }: any) {
             <div>
               <div>
                 <img
-                  width="200"
-                  height="200"
+                  width="100px"
+                  height="100px"
                   alt="image"
                   src="https://placekitten.com/300/300"
                 />
@@ -49,5 +49,5 @@ export default function Home({ artists }: any) {
         </div>
       </div>
     </GradientLayout>
-  );
+  )
 }
