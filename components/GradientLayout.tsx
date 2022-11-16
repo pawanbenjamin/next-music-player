@@ -1,17 +1,14 @@
-import { Box, Flex, Text, Image, Button } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
 
 type Props = {
-  children: JSX.Element | JSX.Element[];
-  color: string;
-  image: string;
-  subtitle: string;
-  title: string;
-  description: string;
-  roundImage: boolean;
-};
-
-const color = "green";
+  children: JSX.Element | JSX.Element[]
+  color: string
+  image: string
+  subtitle: string
+  title: string
+  description: string
+  roundImage: boolean
+}
 
 export default function GradientLayout({
   children,
@@ -20,51 +17,30 @@ export default function GradientLayout({
   subtitle,
   title,
   description,
-  roundImage,
+  roundImage
 }: Props) {
-  const router = useRouter();
+  const router = useRouter()
 
   async function logout() {
-    await fetch("/api/logout");
-    router.push("/signin");
+    await fetch("/api/logout")
+    router.push("/signin")
   }
 
   return (
-    <Box
-      height="100%"
-      overflowY="auto"
-      maxW="90vw"
-      bgGradient={`linear(${color}.500 0%, ${color}.600 15%, ${color}.700 40%, rgba(0,0,0,0.95) 75%)`}
-    >
-      <Flex bg={`${color}.600`} padding="40px" align="end">
-        <Box padding="20px">
-          <Image
-            boxSize="160px"
-            boxShadow="2xl"
-            src={image}
-            borderRadius={roundImage ? "100%" : "3px"}
-          />
-        </Box>
-        <Box padding="20px" lineHeight="40px" color="white">
-          <Text fontSize="x-small" fontWeight="bold" casing="uppercase">
-            {subtitle}
-          </Text>
-          <Text fontSize="6xl">{title}</Text>
-          <Text fontSize="x-small">{description}</Text>
-        </Box>
-        <Button
-          onClick={logout}
-          type="submit"
-          fontSize="small"
-          bg={`${color}.600`}
-          position="absolute"
-          top="1rem"
-          right="1rem"
-        >
-          Logout
-        </Button>
-      </Flex>
-      <Box paddingY="50px">{children}</Box>
-    </Box>
-  );
+    <div className="bg-olive flex flex-col content-container w-fit">
+      <div>
+        <img
+          className="w-48"
+          src="https://i.natgeofe.com/k/75ac774d-e6c7-44fa-b787-d0e20742f797/giant-panda-eating_3x2.jpg"
+        />
+      </div>
+      <div>
+        <h4>{subtitle}</h4>
+        <h4>{title}</h4>
+        <h4>{description}</h4>
+      </div>
+      <button onClick={logout}>Logout</button>
+      <div>{children}</div>
+    </div>
+  )
 }

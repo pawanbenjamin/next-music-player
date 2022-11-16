@@ -1,5 +1,5 @@
 // import NextImage from "next/image";
-import NextLink from "next/link";
+import NextLink from "next/link"
 import {
   Box,
   Flex,
@@ -11,8 +11,8 @@ import {
   LinkBox,
   Link,
   LinkOverlay,
-  Text,
-} from "@chakra-ui/react";
+  Text
+} from "@chakra-ui/react"
 
 import {
   MdHome,
@@ -20,136 +20,92 @@ import {
   MdLibraryMusic,
   MdPlaylistAdd,
   MdFavorite,
-  MdEventBusy,
-} from "react-icons/md";
+  MdEventBusy
+} from "react-icons/md"
 
 const navMenu = [
   {
     name: "Home",
     icon: MdHome,
-    route: "/",
+    route: "/"
   },
   {
     name: "Search",
     icon: MdSearch,
-    route: "/search",
+    route: "/search"
   },
   {
     name: "Library",
     icon: MdLibraryMusic,
-    route: "/library",
-  },
-];
+    route: "/library"
+  }
+]
 
 const musicMenu = [
   {
     name: "Add",
     icon: MdPlaylistAdd,
-    route: "/",
+    route: "/"
   },
   {
     name: "Favorites",
     icon: MdFavorite,
-    route: "/favorites",
-  },
-];
+    route: "/favorites"
+  }
+]
 
 const playlists = new Array(30).fill(1).map((_, i) => {
-  return { name: `Playlist ${i + 1}`, id: i + 1 };
-});
+  return { name: `Playlist ${i + 1}`, id: i + 1 }
+})
 
 export default function Sidebar() {
   return (
-    <Box
-      width="20rem"
-      height="calc(100vh - 100px)"
-      bg="black"
-      paddingX="5px"
-      color="gray"
-    >
-      <Box paddingY="20px" height="100%">
-        <Box width="120px" marginBottom="20px" paddingX="20px">
+    <div>
+      <div className="content-container">
+        <div>
           {/* <NextImage src="/logo.svg" height={60} width={120} /> */}
-          <Text>NMP</Text>
-        </Box>
-        <Box marginBottom="20px">
-          <List spacing={2}>
+          <h3>NMP</h3>
+        </div>
+        <div>
+          <ul>
             {navMenu.map((menuItem, i) => (
-              <ListItem paddingX="20px" fontSize="16px" key={i}>
-                <LinkBox>
-                  <NextLink href={menuItem.route} legacyBehavior passHref>
-                    <Link>
-                      <ListIcon
-                        as={menuItem.icon}
-                        color="white"
-                        marginRight="20px"
-                      />
-                      {menuItem.name}
-                    </Link>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
+              <li key={i}>
+                <NextLink href={menuItem.route} legacyBehavior passHref>
+                  {menuItem.name}
+                </NextLink>
+              </li>
             ))}
-          </List>
-        </Box>
+          </ul>
+        </div>
 
-        <Box>
-          <List spacing={2}>
+        <div>
+          <ul>
             {musicMenu.map((item) => (
-              <ListItem paddingX="20px" fontSize="16px" key={item.name}>
-                <LinkBox>
-                  <NextLink href={item.route} legacyBehavior passHref>
-                    <LinkOverlay>
-                      <ListIcon
-                        as={item.icon}
-                        color="white"
-                        marginRight="20px"
-                      />
-                      {item.name}
-                    </LinkOverlay>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
+              <li key={item.name}>
+                <NextLink href={item.route}>{item.name}</NextLink>
+              </li>
             ))}
-          </List>
-          <Divider bg="green.800" marginY="10px" />
-        </Box>
+          </ul>
+          <hr />
+        </div>
 
-        <Box
-          sx={{
-            "&::-webkit-scrollbar": {
-              width: "16px",
-              borderRadius: "8px",
-              backgroundColor: `rgba(0, 0, 0, 0.05)`,
-            },
-            "&::-webkit-scrollbar-thumb": {
-              backgroundColor: `rgba(0, 0, 0, 0.05)`,
-            },
-          }}
-          height="66%"
-          paddingLeft="20px"
-          overflowY="auto"
-        >
-          <List marginBottom="3rem" spacing={2}>
+        <div className="bg-yellow overflow-y-auto">
+          <ul>
             {playlists.map((list) => (
-              <ListItem key={list.id}>
-                <LinkBox>
-                  <NextLink
-                    href={{
-                      pathname: "/playlist/[id]",
-                      query: { id: list.id },
-                    }}
-                    legacyBehavior
-                    passHref
-                  >
-                    <LinkOverlay>{list.name}</LinkOverlay>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
+              <li key={list.id}>
+                <NextLink
+                  href={{
+                    pathname: "/playlist/[id]",
+                    query: { id: list.id }
+                  }}
+                >
+                  {list.name}
+                </NextLink>
+              </li>
             ))}
-          </List>
-        </Box>
-      </Box>
-    </Box>
-  );
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
 }
