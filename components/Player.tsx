@@ -143,13 +143,14 @@ export default function Player({ songs, activeSong }) {
             icon={<MdSkipPrevious />}
             onClick={prevSong}
           />
-          {false ? (
+          {playing ? (
             <IconButton
               outline="none"
               variant="link"
               aria-label="pause"
               fontSize="40px"
               icon={<MdOutlinePauseCircleFilled />}
+              onClick={() => setPlayState(false)}
             />
           ) : (
             <IconButton
