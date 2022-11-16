@@ -1,18 +1,17 @@
-import Player from "./Player"
+import Player from "./Player";
+import { useStoreState } from "easy-peasy";
 
 type song = {
-  name: string
+  name: string;
   artist: {
-    name: string
-  }
-}
-
-const activeSong: song | null = {
-  name: "A Night with Bill",
-  artist: { name: "Bill" }
-}
+    name: string;
+  };
+};
 
 export default function PlayerBar() {
+  const songs = useStoreState((state: any) => state.activeSongs);
+  const activeSong = useStoreState((state: any) => state.activeSong);
+
   return (
     <div>
       {activeSong ? (
@@ -21,7 +20,7 @@ export default function PlayerBar() {
           <h3>{activeSong.artist.name}</h3>
         </div>
       ) : null}
-      {activeSong ? <Player /> : null}
+      {activeSong ? <Player songs={songs} activeSong={activeSong} /> : null}
     </div>
-  )
+  );
 }

@@ -3,13 +3,14 @@ import SongTable from "../../components/songsTable";
 import { validateToken } from "../../lib/auth";
 import prisma from "../../lib/prisma";
 
-const getBgColor = (id) => {
+const getBgColor = (id: number) => {
   const colors = ["red", "green", "blue", "orange", "purple", "grey", "yellow"];
   return colors[id - 1] || colors[Math.floor(Math.random() * colors.length)];
 };
 
 const Playlist = ({ playlist }) => {
   const color = getBgColor(playlist.id);
+  console.log("PLAYLIST", playlist);
   return (
     <GradientLayout
       color={color}
@@ -19,13 +20,13 @@ const Playlist = ({ playlist }) => {
       description={`${playlist.songs.length} songs`}
       image={`https://picsum.photos/400?random=${playlist.id}`}
     >
-      {/* <SongTable songs={playlist.songs} /> */}
+      <SongTable songs={playlist.songs} />
     </GradientLayout>
   );
 };
 
 export const getServerSideProps = async ({ query, req }) => {
-  let user;
+  let user: any;
 
   try {
     user = validateToken(req.cookies.next_player_token);
