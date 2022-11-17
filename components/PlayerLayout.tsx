@@ -10,7 +10,9 @@ const PlayerLayout = ({ children }: Props) => {
   return (
     <div className="bg-kombu flex flex-col h-screen">
       <div className="flex flex-row">
-        <Sidebar />
+        <div className="w-1/6">
+          <Sidebar />
+        </div>
         <div className="">{children}</div>
       </div>
       <PlayerBar />

@@ -27,7 +27,7 @@ export default function GradientLayout({
   }
 
   return (
-    <div className="bg-olive flex flex-col content-container w-fit">
+    <div className="bg-olive flex flex-col content-container">
       <div>
         <img
           className="w-48"

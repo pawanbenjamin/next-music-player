@@ -1,9 +1,6 @@
 import GradientLayout from "../components/GradientLayout"
 import { useMe } from "../lib/hooks"
 import prisma from "../lib/prisma"
-import Image from "next/image"
-
-// const artists = [{ name: "Bill" }, { name: "John" }, { name: "Regina" }];
 
 export const getServerSideProps = async () => {
   const artists = await prisma.artist.findMany()
@@ -24,7 +21,7 @@ export default function Home({ artists }: any) {
       description={`${user?.playlistCount} public playlists`}
       image="https://static.scientificamerican.com/sciam/cache/file/ACF0A7DC-14E3-4263-93F438F6DA8CE98A_source.jpg"
     >
-      <div className="w-90">
+      <div className="w-screen">
         <div>
           <h4>Top artists this month:</h4>
           <h4>Only visible to you</h4>

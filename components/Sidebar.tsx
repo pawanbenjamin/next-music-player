@@ -1,18 +1,18 @@
 // import NextImage from "next/image";
-import NextLink from "next/link";
-import {
-  Box,
-  Flex,
-  List,
-  ListIcon,
-  Divider,
-  ListItem,
-  Center,
-  LinkBox,
-  Link,
-  LinkOverlay,
-  Text,
-} from "@chakra-ui/react";
+import NextLink from "next/link"
+// import {
+//   Box,
+//   Flex,
+//   List,
+//   ListIcon,
+//   Divider,
+//   ListItem,
+//   Center,
+//   LinkBox,
+//   Link,
+//   LinkOverlay,
+//   Text
+// } from "@chakra-ui/react"
 
 import {
   MdHome,
@@ -20,59 +20,59 @@ import {
   MdLibraryMusic,
   MdPlaylistAdd,
   MdFavorite,
-  MdEventBusy,
-} from "react-icons/md";
-import { usePlaylist } from "../lib/hooks";
+  MdEventBusy
+} from "react-icons/md"
+import { usePlaylist } from "../lib/hooks"
 
 const navMenu = [
   {
     name: "Home",
     icon: MdHome,
-    route: "/",
+    route: "/"
   },
   {
     name: "Search",
     icon: MdSearch,
-    route: "/search",
+    route: "/search"
   },
   {
     name: "Library",
     icon: MdLibraryMusic,
-    route: "/library",
-  },
-];
+    route: "/library"
+  }
+]
 
 const musicMenu = [
   {
     name: "Add",
     icon: MdPlaylistAdd,
-    route: "/",
+    route: "/"
   },
   {
     name: "Favorites",
     icon: MdFavorite,
-    route: "/favorites",
-  },
-];
+    route: "/favorites"
+  }
+]
 
 // const playlists = new Array(30).fill(1).map((_, i) => {
 //   return { name: `Playlist ${i + 1}`, id: i + 1 }
 // })
 
 export default function Sidebar() {
-  const { playlists } = usePlaylist();
-  console.log({ playlists });
+  const { playlists } = usePlaylist()
+  console.log({ playlists })
   return (
     <div>
       <div className="content-container">
-        <div>
+        <div className="text-silk font-bold">
           {/* <NextImage src="/logo.svg" height={60} width={120} /> */}
           <h3>NMP</h3>
         </div>
         <div>
           <ul>
             {navMenu.map((menuItem, i) => (
-              <li key={i}>
+              <li className="text-silk font-bold" key={i}>
                 <NextLink href={menuItem.route} legacyBehavior passHref>
                   {menuItem.name}
                 </NextLink>
@@ -82,7 +82,7 @@ export default function Sidebar() {
         </div>
 
         <div>
-          <ul>
+          <ul className="text-silk font-bold">
             {musicMenu.map((item) => (
               <li key={item.name}>
                 <NextLink href={item.route}>{item.name}</NextLink>
@@ -92,14 +92,14 @@ export default function Sidebar() {
           <hr />
         </div>
 
-        <div className="bg-yellow overflow-y-auto">
-          <ul>
-            {playlists.map((list) => (
+        <div className="overflow-y-auto">
+          <ul className="text-silk font-bold">
+            {playlists.map((list: any) => (
               <li key={list.id}>
                 <NextLink
                   href={{
                     pathname: "/playlist/[id]",
-                    query: { id: list.id },
+                    query: { id: list.id }
                   }}
                 >
                   {list.name}
@@ -110,5 +110,5 @@ export default function Sidebar() {
         </div>
       </div>
     </div>
-  );
+  )
 }
